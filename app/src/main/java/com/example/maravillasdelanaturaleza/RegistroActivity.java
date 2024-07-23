@@ -7,23 +7,13 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.maravillasdelanaturaleza.Entidades.Usuarios;
-import com.example.maravillasdelanaturaleza.Services.ApiService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -78,33 +68,20 @@ public class RegistroActivity extends AppCompatActivity {
             removerBordeRojo(password);
         }
 
-        if (retornar) {
-            return;
-        }else{
+        if (!retornar) {
             Usuarios usuario = new Usuarios();
             usuario.setNombre(nombre.getText().toString());
             usuario.setCorreos(correo.getText().toString());
             usuario.setContrasena(password.getText().toString());
-            Intent i = new Intent(this, LoginActivity.class);
-            Call<String> caller = ApiService.getApiService().agregarUsuarios(usuario);
-            caller.enqueue(new Callback<String>() {
-                @Override
-                public void onResponse(Call<String> call, Response<String> response) {
-                    if(response.isSuccessful()){
-                        String result = response.body();
-                        if(result.equals("Usuario agregado")){
-                            startActivity(i);
-                        }
-                    }
-                }
 
-                @Override
-                public void onFailure(Call<String> call, Throwable t) {
-
-                }
-            });
         }
     }
+
+    private void enviarALogin() {
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+    }
+
     public void irAiniciarSesion(View v){
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);

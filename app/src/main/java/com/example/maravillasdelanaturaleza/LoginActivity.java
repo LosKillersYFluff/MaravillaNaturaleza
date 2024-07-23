@@ -9,16 +9,10 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.maravillasdelanaturaleza.Entidades.Usuarios;
-import com.example.maravillasdelanaturaleza.Services.ApiService;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
     EditText correo, password;
-    Usuarios _usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         usuario.setCorreos(correo.getText().toString());
         usuario.setContrasena(password.getText().toString());
         Intent i = new Intent(this, MenuActivity.class);
-        Call<Usuarios> caller = ApiService.getApiService().login(usuario);
-        caller.enqueue(new Callback<Usuarios>() {
-            @Override
-            public void onResponse(Call<Usuarios> call, Response<Usuarios> response) {
-                if(response.isSuccessful() && response.body() != null){
-                    Usuarios usuario = response.body();
-                    SharedPreferences sp = getSharedPreferences("usuario", MODE_PRIVATE);
+                    /*SharedPreferences sp = getSharedPreferences("usuario", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putInt("id", usuario.getId_usuario());
                     editor.putString("nombre", usuario.getNombre());
@@ -53,15 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putInt("id_rol", usuario.getId_rol());
                     editor.putBoolean("isLogged", true);
                     editor.apply();
-                    startActivity(i);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Usuarios> call, Throwable t) {
-
-            }
-        });
+                    startActivity(i);*/
     }
 
     public void irAinicio(View v){
