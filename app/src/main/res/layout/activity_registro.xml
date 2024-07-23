@@ -21,6 +21,7 @@
         android:layout_width="313dp"
         android:layout_height="246dp"
         android:layout_below="@+id/home"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="2dp"
         android:background="@drawable/titulo_madera">
 
