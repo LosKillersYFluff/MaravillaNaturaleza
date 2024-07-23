@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Usuarios usuario = response.body();
                     _usuario = usuario;
-                    //usar bundle para pasar el dato a
 
                 }
             }
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        if(usuario != null){
+        if(_usuario != null){
             Intent i = new Intent(this, MenuActivity.class);//MenuActivity
             startActivity(i);
         }
