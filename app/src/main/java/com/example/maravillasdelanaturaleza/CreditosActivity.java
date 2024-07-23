@@ -1,27 +1,27 @@
 package com.example.maravillasdelanaturaleza;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-public class MenuActivity extends AppCompatActivity {
+public class CreditosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_creditos);
         hideSystemUI();
 
     }
-
-    public void verCreditos(View v){
-        Intent i = new Intent(this, CreditosActivity.class);
-        startActivity(i);
+    public void regresar(View v) {
+        // Acción para volver atrás
+        onBackPressed();
     }
-
     private void hideSystemUI() {
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(

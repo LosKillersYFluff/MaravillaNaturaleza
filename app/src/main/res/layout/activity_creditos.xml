@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".CreditosActivity">
+
+    <ImageButton
+        android:id="@+id/regresar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/flecharegresar"
+        android:background="@android:color/transparent"
+        android:onClick="regresar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:layout_margin="10dp"/>
+
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:background="@drawable/titulomadera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Créditos"
+            android:textSize="50sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/stay_pixel"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:shadowColor="@color/colorBorde"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/contenedor_creditos"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/fondomadera"
+        android:scaleX="1.95"
+        android:scaleY="1.75">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/texto_creditos1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/stay_pixel"
+                android:text="Líder José Macre"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/texto_creditos2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/texto_creditos1"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/stay_pixel"
+                    android:text="Desarrollador Carlos Rodriguez"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/stay_pixel"
+                    android:text="Diseñadora Gráfica Stephanie Bingham"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/texto_creditos4"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/texto_creditos1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/stay_pixel"
+                    android:text="Diseñador Gráfico Didier Villalaz"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/stay_pixel"
+                    android:text="Desarrollador Jaider Rico"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

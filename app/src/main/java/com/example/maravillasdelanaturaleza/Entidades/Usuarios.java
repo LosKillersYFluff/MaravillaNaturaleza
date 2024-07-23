@@ -2,7 +2,7 @@ package com.example.maravillasdelanaturaleza.Entidades;
 
 public class Usuarios {
     private int id_usuario;
-    private String nombres;
+    private String nombre;
     private String correos;
     private String contrasena;
     private int id_rol;
@@ -11,21 +11,22 @@ public class Usuarios {
 
     }
 
-    public Usuarios(String correos, String contrasena) {
+    public Usuarios(String nombre, String correos, String contrasena) {
+        this.nombre = nombre;
         this.correos = correos;
         this.contrasena = contrasena;
     }
 
-    public Usuarios(int id_usuario, String nombres, String correos, int id_rol) {
+    public Usuarios(int id_usuario, String nombre, String correos, int id_rol) {
         this.id_usuario = id_usuario;
-        this.nombres = nombres;
+        this.nombre = nombre;
         this.correos = correos;
         this.id_rol = id_rol;
     }
 
-    public Usuarios(int id_usuario, String nombres, String correos, String contrasena, int id_rol) {
+    public Usuarios(int id_usuario, String nombre, String correos, String contrasena, int id_rol) {
         this.id_usuario = id_usuario;
-        this.nombres = nombres;
+        this.nombre = nombre;
         this.correos = correos;
         this.contrasena = contrasena;
         this.id_rol = id_rol;
@@ -39,12 +40,12 @@ public class Usuarios {
         this.id_usuario = id_usuario;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCorreos() {

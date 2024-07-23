@@ -1,6 +1,9 @@
 package com.example.maravillasdelanaturaleza;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -40,15 +43,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void iniciarSesion(View v){
-        Usuarios usuario = new Usuarios(correo.getText().toString(), password.getText().toString());
+        Usuarios usuario = new Usuarios();
+        usuario.setCorreos(correo.getText().toString());
+        usuario.setContrasena(password.getText().toString());
+        Intent i = new Intent(this, MenuActivity.class);
         Call<Usuarios> caller = ApiService.getApiService().login(usuario);
         caller.enqueue(new Callback<Usuarios>() {
             @Override
             public void onResponse(Call<Usuarios> call, Response<Usuarios> response) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful() && response.body() != null){
                     Usuarios usuario = response.body();
-                    _usuario = usuario;
-
+                    SharedPreferences sp = getSharedPreferences("usuario", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putInt("id", usuario.getId_usuario());
+                    editor.putString("nombre", usuario.getNombre());
+                    editor.putString("correo", usuario.getCorreos());
+                    editor.putInt("id_rol", usuario.getId_rol());
+                    editor.putBoolean("isLogged", true);
+                    editor.apply();
+                    startActivity(i);
                 }
             }
 
@@ -57,10 +70,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        if(_usuario != null){
-            Intent i = new Intent(this, MenuActivity.class);//MenuActivity
-            startActivity(i);
-        }
     }
 
     private void hideSystemUI() {
