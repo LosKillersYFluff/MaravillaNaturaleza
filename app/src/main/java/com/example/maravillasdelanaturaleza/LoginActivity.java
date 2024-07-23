@@ -1,7 +1,7 @@
 package com.example.maravillasdelanaturaleza;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         hideSystemUI();
         this.InicializarControles();
     }
@@ -40,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("correo", usuario.getCorreos());
                     editor.putInt("id_rol", usuario.getId_rol());
                     editor.putBoolean("isLogged", true);
-                    editor.apply();
-                    startActivity(i);*/
+                    editor.apply();*/
+        startActivity(i);
     }
 
     public void irAinicio(View v){

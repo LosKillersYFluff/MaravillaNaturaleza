@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo">
+
+    <ImageButton
+        android:id="@+id/regresar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/flecharegresar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerCrop"
+        android:onClick="regresar" />
+
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_width="300dp"
+        android:layout_height="105dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/titulomadera"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ranking"
+            android:shadowColor="@color/colorBorde"
+            android:textSize="45sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:fontFamily="@font/stay_pixel"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contenedor_ranking"
+        android:layout_width="500dp"
+        android:layout_height="280dp"
+        android:layout_below="@+id/contenedor_titulo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/fondo_transparente"
+        android:padding="20dp">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"/>
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/spinner"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

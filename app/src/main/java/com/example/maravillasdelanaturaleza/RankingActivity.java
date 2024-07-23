@@ -1,49 +1,31 @@
 package com.example.maravillasdelanaturaleza;
 
-import android.content.Intent;
-import android.media.MediaPlayer;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-public class MenuActivity extends AppCompatActivity {
-    private MediaPlayer mediaplayer;
+public class RankingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-        hideSystemUI();
+        setContentView(R.layout.activity_ranking);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         this.InicializarControles();
+    }
+
+    public void regresar(View v){
+        onBackPressed();
     }
 
     private void InicializarControles() {
     }
-
-    public void irAtutorial(View v){
-        //Intent i = new Intent(this, .class);
-    }
-    public void irAlbum(View v){
-        //Intent i = new Intent(this, .class);
-    }
-    public void irAperfil(View v){
-        //Intent i = new Intent(this, .class);
-    }
-    public void cerrarsesion(View v){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-    public void irAranking(View v){
-        Intent i = new Intent(this, RankingActivity.class);
-        startActivity(i);
-    }
-
-    public void irAcreditos(View v){
-        Intent i = new Intent(this, CreditosActivity.class);
-        startActivity(i);
-    }
-
     private void hideSystemUI() {
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(

@@ -52,7 +52,7 @@
                 android:src="@drawable/fondomadera"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"
-                android:onClick="abrirTutorial" />
+                android:onClick="irAtutorial" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                 android:src="@drawable/fondomadera"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"
-                android:onClick="abrirAlbum" />
+                android:onClick="irAlbum" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
                 android:src="@drawable/fondomadera"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"
-                android:onClick="verRanking" />
+                android:onClick="irAranking" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
                 android:src="@drawable/fondomadera"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"
-                android:onClick="verCreditos" />
+                android:onClick="irAcreditos" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,6 +206,6 @@
         android:layout_toStartOf="@id/salir"
         android:background="@drawable/perfil"
         android:scaleType="centerInside"
-        android:onClick="verPerfil" />
+        android:onClick="irAperfil" />
 
 </RelativeLayout>

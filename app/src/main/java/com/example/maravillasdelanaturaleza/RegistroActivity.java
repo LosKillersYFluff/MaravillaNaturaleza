@@ -1,16 +1,27 @@
 package com.example.maravillasdelanaturaleza;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.maravillasdelanaturaleza.Entidades.Usuarios;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.maravillasdelanaturaleza.Constantes.Constantes;
+
+import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,6 +34,7 @@ public class RegistroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         hideSystemUI();
         this.InicializarControles();
     }
@@ -69,11 +81,40 @@ public class RegistroActivity extends AppCompatActivity {
         }
 
         if (!retornar) {
-            Usuarios usuario = new Usuarios();
-            usuario.setNombre(nombre.getText().toString());
-            usuario.setCorreos(correo.getText().toString());
-            usuario.setContrasena(password.getText().toString());
+            String url = Uri.parse(Constantes.URL_BASE + "registro.php")
+                    .buildUpon()
+                    .appendQueryParameter("nombre", nombre.getText().toString())
+                    .appendQueryParameter("correos", correo.getText().toString())
+                    .appendQueryParameter("contrasenas", password.getText().toString())
+                    .build().toString();
+            JsonObjectRequest JOR = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject jsonObject) {
+                    respuesta(jsonObject);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Toast.makeText(RegistroActivity.this, "Error de red: "+ volleyError, Toast.LENGTH_SHORT).show();
+                }
+            });
+            RequestQueue cola = Volley.newRequestQueue(this);
+            cola.add(JOR);
+        }else{
+            Toast.makeText(this, "Campos vacíos", Toast.LENGTH_LONG).show();
+        }
+    }
+    private void respuesta(JSONObject jsonObject) {
+        try {
+            if (jsonObject.getString("resultado").compareTo("Usuario agregado") == 0) {
 
+                startActivity(new Intent(this, LoginActivity.class));
+                Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Error de usuario/contraseña", Toast.LENGTH_SHORT).show();
+            }
+        }catch (Exception e){
+            e.getMessage();
         }
     }
 
