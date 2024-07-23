@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fondo"
+    tools:context=".MenuActivity">
+
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_width="440dp"
+        android:layout_height="305dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/titulo_madera"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Maravillas de la Naturaleza"
+            android:textSize="50sp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:fontFamily="@font/stay_pixel"
+            android:layout_centerInParent="true"
+            android:shadowColor="@color/colorBorde"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="5"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/contenedor_botones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="320dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/fondomadera"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:onClick="abrirTutorial" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tutorial"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/stay_pixel"
+                android:layout_centerInParent="true"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/fondomadera"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:onClick="abrirAlbum" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Álbum"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/stay_pixel"
+                android:layout_centerInParent="true"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/fondomadera"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:onClick="jugarMinijuego" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugar"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/stay_pixel"
+                android:layout_centerInParent="true"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/fondomadera"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:onClick="verRanking" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ranking"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/stay_pixel"
+                android:layout_centerInParent="true"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/fondomadera"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:onClick="verCreditos" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Créditos"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/stay_pixel"
+                android:layout_centerInParent="true"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5" />
+        </RelativeLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/imgSonido"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sonido"
+        android:onClick="toggleSonido"
+        android:scaleType="centerInside"/>
+    <ImageButton
+        android:id="@+id/salir"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cerrarsesion"
+        android:scaleType="centerInside"
+        android:onClick="cerrarsesion"/>
+
+    <ImageButton
+        android:id="@+id/perfil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toStartOf="@id/salir"
+        android:background="@drawable/perfil"
+        android:scaleType="centerInside"
+        android:onClick="verPerfil" />
+
+</RelativeLayout>

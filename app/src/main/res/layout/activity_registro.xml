@@ -184,7 +184,6 @@
                 android:layout_height="36dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/fondomadera"
-                android:contentDescription="@string/registrarse"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -223,7 +222,6 @@
                 android:layout_height="36dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/fondomadera"
-                android:contentDescription="@string/iniciar_sesion"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -236,12 +234,5 @@
                 android:textSize="16sp" /> <!-- Tamaño reducido -->
 
         </RelativeLayout>
-
     </RelativeLayout>
-
-
-
-
-
-
 </RelativeLayout>
