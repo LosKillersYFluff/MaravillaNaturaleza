@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:onClick="abrirRegistarse"
+                android:onClick="irAregistro"
                 android:scaleType="fitCenter"
                 android:src="@drawable/fondomadera" />
 

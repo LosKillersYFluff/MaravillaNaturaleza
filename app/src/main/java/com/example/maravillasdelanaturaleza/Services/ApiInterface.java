@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @POST("/nature/registrar")
-    Call<Usuarios> agregarUsuarios(@Body Usuarios usuario);
+    Call<String> agregarUsuarios(@Body Usuarios usuario);
 
     @POST("/nature/login")
     Call<Usuarios> login(@Body Usuarios usuario);

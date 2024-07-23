@@ -11,6 +11,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/inicio"
+        android:onClick="irAinicio"
         android:background="@android:color/transparent"
         android:layout_alignParentStart="true"
         android:scaleType="fitCenter"
@@ -197,6 +198,7 @@
                 android:id="@+id/iniciar_sesion"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
+                android:onClick="irAregistro"
                 android:background="@android:color/transparent"
                 android:src="@drawable/fondomadera"
                 android:scaleType="fitCenter" />

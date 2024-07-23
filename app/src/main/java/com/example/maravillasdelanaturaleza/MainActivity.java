@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void irAregistro(View v){
+        Intent i = new Intent(this, RegistroActivity.class);
+        startActivity(i);
+    }
+
     private void hideSystemUI() {
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(

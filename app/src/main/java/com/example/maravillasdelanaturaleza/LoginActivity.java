@@ -1,23 +1,15 @@
 package com.example.maravillasdelanaturaleza;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.maravillasdelanaturaleza.Entidades.Usuarios;
 import com.example.maravillasdelanaturaleza.Services.ApiService;
-import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -70,6 +62,15 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void irAinicio(View v){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
+    public void irAregistro(View v){
+        Intent i = new Intent(this, RegistroActivity.class);
+        startActivity(i);
     }
 
     private void hideSystemUI() {
