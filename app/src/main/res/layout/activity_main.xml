@@ -1,19 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:id="@+id/main"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_width="440dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/titulo_madera"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="4dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="313dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:shadowColor="@color/colorBorde"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Maravillas de la Naturaleza"
+            android:fontFamily="@font/stay_pixel"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="53sp"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="5"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/contenedor_botones"
+        android:layout_width="wrap_content"
+        android:layout_height="1000dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:onClick="abrirIniciarSesion"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fondomadera" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/stay_pixel"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="Iniciar Sesión"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:onClick="abrirRegistarse"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fondomadera" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/stay_pixel"
+                android:shadowColor="@color/colorBorde"
+                android:shadowDx="1.5"
+                android:shadowDy="1.5"
+                android:shadowRadius="1.5"
+                android:text="Registrarse"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
