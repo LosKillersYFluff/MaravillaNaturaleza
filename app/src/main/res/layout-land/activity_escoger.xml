@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fondo"
+    tools:context=".Minijuego1Activity">
+
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_marginTop="80dp"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/fondo_transparente1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/stay_pixel"
+            android:shadowColor="@color/colorBorde"
+            android:gravity="center"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5"
+            android:text="Â¿Como se llama este animal?"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contenedor_puntaje"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="700dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/fondo_transparente1">
+        <TextView
+            android:id="@+id/puntaje_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/pixellari"
+            android:text="Puntaje:"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:shadowColor="@color/colorBorde"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5" />
+
+        <TextView
+            android:id="@+id/puntaje_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/puntaje_label"
+            android:layout_marginStart="8dp"
+            android:layout_alignTop="@id/puntaje_label"
+            android:fontFamily="@font/pixellari"
+            android:text="0"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:shadowColor="@color/colorBorde"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/home"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/inicio"
+        android:background="@android:color/transparent"
+        android:layout_marginStart="25dp"
+        android:scaleType="fitCenter"/>
+
+
+    <LinearLayout
+        android:id="@+id/container_image"
+        android:layout_width="270dp"
+        android:layout_marginStart="310dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contenedor_titulo"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/imgMinijuego1"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:background="@drawable/fondo_transparente"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="155dp">
+
+        <ImageButton
+            android:id="@+id/opcion1"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/fondomadera"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/pixellari"
+            android:text="Opcion 1"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="260dp">
+
+        <ImageButton
+            android:id="@+id/opcion2"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/fondomadera"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/pixellari"
+            android:text="Opcion 2"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="625dp"
+        android:layout_marginTop="155dp">
+
+        <ImageButton
+            android:id="@+id/opcion3"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/fondomadera"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/pixellari"
+            android:text="Opcion 3"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="625dp"
+        android:layout_marginTop="260dp">
+
+        <ImageButton
+            android:id="@+id/opcion4"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/fondomadera"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/pixellari"
+            android:text="Opcion 4"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+</RelativeLayout>
+
