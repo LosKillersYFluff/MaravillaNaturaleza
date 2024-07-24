@@ -43,9 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         caller.enqueue(new Callback<Usuarios>() {
             @Override
             public void onResponse(Call<Usuarios> call, Response<Usuarios> response) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful() && response.body()!=null){
                     SharedPreferences sp = getSharedPreferences("usuario", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
+                    Usuarios usuario = response.body();
                     editor.putInt("id", usuario.getId_usuario());
                     editor.putString("nombre", usuario.getNombre());
                     editor.putString("correo", usuario.getCorreos());
