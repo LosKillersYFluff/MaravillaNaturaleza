@@ -26,11 +26,9 @@ public class MenuActivity extends AppCompatActivity {
     public void irAtutorial(View v){
         //Intent i = new Intent(this, .class);
     }
-    public void irAlbum(View v){
-        //Intent i = new Intent(this, .class);
-    }
     public void irAperfil(View v){
-        //Intent i = new Intent(this, .class);
+        Intent i = new Intent(this, PerfilActivity.class);
+        startActivity(i);
     }
     public void cerrarsesion(View v){
         Intent i = new Intent(this, MainActivity.class);

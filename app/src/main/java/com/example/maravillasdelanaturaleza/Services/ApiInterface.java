@@ -16,6 +16,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -53,5 +54,8 @@ public interface ApiInterface {
 
     @GET("/nature/organizar")
     Call<List<Respuestas>> organizar(@Query("id_animal") String idAnimal);
+
+    @DELETE("/nature/deleteUser/{id_usuario}")
+    Call<Num> deleteUser(@Path("id_usuario")int id_usuario);
 
 }

@@ -9,6 +9,7 @@
         android:id="@+id/regresar"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="regresar"
         android:src="@drawable/flecharegresar"
         android:background="@android:color/transparent"
         android:layout_alignParentStart="true"
@@ -51,50 +52,12 @@
         android:padding="20dp">
 
         <RelativeLayout
-            android:id="@+id/top"
-            android:layout_width="230dp"
-            android:layout_height="233dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/fondo_chocolate"
-            android:padding="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dejanos tu comentario"
-                android:textSize="30sp"
-                android:textColor="@android:color/white"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:fontFamily="@font/stay_pixel"
-                android:layout_marginTop="1dp"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:id="@+id/info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Escribe tu comentario aquí"
-                android:textSize="20sp"
-                android:fontFamily="@font/pixellari"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="65dp"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:textAlignment="center" />
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/top1"
-            android:layout_width="195dp"
+            android:layout_width="300dp"
             android:layout_height="124dp"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="112dp"
-            android:layout_marginStart="4dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="80dp"
             android:background="@drawable/fondo_chocolate"
             android:padding="10dp"
             android:orientation="vertical">
@@ -109,12 +72,12 @@
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/pixellari"/>
 
-            <TextView
-                android:id="@+id/info_especie"
+            <EditText
+                android:id="@+id/nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="0dp"
                 android:text="Usuario"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
@@ -132,12 +95,12 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginStart="2dp"/>
 
-            <TextView
-                android:id="@+id/info_peso"
+            <EditText
+                android:id="@+id/correo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:text="Este es el correo"
                 android:textSize="18sp"
                 android:textColor="@android:color/white"
@@ -151,8 +114,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="140dp"
-        android:layout_marginStart="270dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="395dp"
         android:padding="10dp"
         android:orientation="vertical">
 
@@ -165,24 +128,18 @@
             android:scaleType="centerCrop" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/botones_editar_eliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal">
-
     <RelativeLayout
         android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="290dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="460dp"
+        android:layout_marginTop="330dp"
         android:layout_marginEnd="0dp">
 
         <ImageButton
             android:id="@+id/boton_editar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="editar"
             android:background="@android:color/transparent"
             android:src="@drawable/fondomadera"
             android:scaleType="fitCenter"/>
@@ -202,15 +159,16 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="290dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="330dp"
         android:layout_marginEnd="30dp">
 
         <ImageButton
             android:id="@+id/boton_eliminar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="eliminar"
             android:background="@android:color/transparent"
             android:src="@drawable/fondomadera"
             android:scaleType="fitCenter"/>
@@ -228,6 +186,5 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
     </RelativeLayout>
-    </LinearLayout>
 
 </RelativeLayout>
