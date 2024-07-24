@@ -39,21 +39,6 @@
             android:shadowDy="1.5"
             android:shadowRadius="1.5" />
 
-        <TextView
-            android:id="@+id/puntaje_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/puntaje_label"
-            android:layout_marginStart="8dp"
-            android:layout_alignTop="@id/puntaje_label"
-            android:fontFamily="@font/pixellari"
-            android:text="0"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:shadowColor="@color/colorBorde"
-            android:shadowDx="1.5"
-            android:shadowDy="1.5"
-            android:shadowRadius="1.5" />
     </RelativeLayout>
 
     <!-- Question text -->
@@ -91,7 +76,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <View
+        <ImageView
             android:id="@+id/imgMinijuego2"
             android:layout_width="250dp"
             android:layout_height="180dp"
@@ -102,22 +87,12 @@
     <!-- Sentence lines -->
     <TextView
         android:id="@+id/sentence_line1"
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="195dp"
         android:layout_marginStart="360dp"
-        android:text="___________________________________________"
-        android:textSize="24sp"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/sentence_line2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_below="@id/sentence_line1"
-        android:layout_alignStart="@id/sentence_line1"
-        android:text="___________________________________________"
+        android:fontFamily="@font/stay_pixel"
+        android:text=""
         android:textSize="24sp"
         android:textColor="@android:color/white" />
 
@@ -133,8 +108,8 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp">
@@ -148,6 +123,7 @@
                 android:scaleType="fitCenter"/>
 
             <TextView
+                android:id="@+id/text_in_button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -158,12 +134,12 @@
                 android:shadowRadius="1.5"
                 android:text="Opcion"
                 android:textColor="@android:color/white"
-                android:textSize="28sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp">
 
@@ -178,6 +154,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/text_in_button2"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/stay_pixel"
                 android:shadowColor="@color/colorBorde"
@@ -186,12 +163,12 @@
                 android:shadowRadius="1.5"
                 android:text="Opcion"
                 android:textColor="@android:color/white"
-                android:textSize="28sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp">
 
@@ -207,6 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:id="@+id/text_in_button3"
                 android:fontFamily="@font/stay_pixel"
                 android:shadowColor="@color/colorBorde"
                 android:shadowDx="1.5"
@@ -214,12 +192,12 @@
                 android:shadowRadius="1.5"
                 android:text="Opcion"
                 android:textColor="@android:color/white"
-                android:textSize="28sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp">
 
@@ -234,6 +212,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/text_in_button4"
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/stay_pixel"
                 android:shadowColor="@color/colorBorde"
@@ -242,17 +221,18 @@
                 android:shadowRadius="1.5"
                 android:text="opcion"
                 android:textColor="@android:color/white"
-                android:textSize="28sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp">
+            android:layout_marginEnd="8dp"
+            android:visibility="gone">
 
             <ImageButton
-                android:id="@+id/boton_frase5"
+                android:id="@+id/siguiente"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -268,7 +248,7 @@
                 android:shadowDx="1.5"
                 android:shadowDy="1.5"
                 android:shadowRadius="1.5"
-                android:text="Opcion"
+                android:text="Siguiente"
                 android:textColor="@android:color/white"
                 android:textSize="28sp" />
         </RelativeLayout>
