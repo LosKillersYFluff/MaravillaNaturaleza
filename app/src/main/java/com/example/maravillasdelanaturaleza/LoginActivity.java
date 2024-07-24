@@ -53,8 +53,13 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putInt("id_rol", usuario.getId_rol());
                     editor.putBoolean("isLogged", true);
                     editor.apply();
-                    Intent i = new Intent(LoginActivity.this, MenuActivity.class);
-                    startActivity(i);
+                    if(usuario.getId_rol() == 1){
+                        Intent i = new Intent(LoginActivity.this, AdminActivity.class);
+                        startActivity(i);
+                    }else{
+                        Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+                        startActivity(i);
+                    }
                 }
             }
 

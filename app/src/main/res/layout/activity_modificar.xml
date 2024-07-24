@@ -455,7 +455,6 @@
         android:layout_alignParentTop="false"
         android:layout_marginTop="150dp"
         android:layout_marginStart="70dp"
-        android:layout_marginEnd="20dp"
-        android:entries="@array/options_array"/>
+        android:layout_marginEnd="20dp"/>
 
 </RelativeLayout>
