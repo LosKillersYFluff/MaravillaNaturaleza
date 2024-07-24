@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Maravillas"
         tools:targetApi="31">
         <activity
+            android:name=".CaracteristicaActivity"
+            android:exported="false" />
+        <activity
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity

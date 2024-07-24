@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -41,6 +40,7 @@ public class OrganizarActivity extends AppCompatActivity {
     private int score = 0;
     private int processedCount = 0; // Track processed elements
     private String fraseCompleta = ""; // To store the current complete sentence
+    private String lastAnimalId = ""; // Track the last animal ID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,23 +59,36 @@ public class OrganizarActivity extends AppCompatActivity {
         imgMinijuego2 = findViewById(R.id.imgMinijuego2);
         puntajeLabel = findViewById(R.id.puntaje_label);
 
-        // Get ApiService instance and call fetchAnimalData
+        // Get ApiService instance and fetch the animal ID
         ApiInterface apiService = ApiService.getApiService();
-        fetchAnimalData(apiService);
+
+        // Get animal ID from Intent
+        Intent intent = getIntent();
+        String animalId = intent.getStringExtra("ANIMAL_ID");
+
+        if (animalId != null) {
+            lastAnimalId = animalId;
+            fetchAnimalData(apiService, animalId);
+        } else {
+            Log.e("OrganizarActivity", "No se ha recibido el ID del animal.");
+        }
     }
 
-    private void fetchAnimalData(ApiInterface apiService) {
-        Call<List<Respuestas>> call = apiService.organizar();
+    private void fetchAnimalData(ApiInterface apiService, String animalId) {
+        Call<List<Respuestas>> call = apiService.organizar(animalId); // Use the correct endpoint
         call.enqueue(new Callback<List<Respuestas>>() {
             @Override
             public void onResponse(Call<List<Respuestas>> call, Response<List<Respuestas>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     respuestasList = response.body();
                     if (!respuestasList.isEmpty()) {
+                        shuffledList.clear();
                         shuffledList.addAll(respuestasList);
                         Collections.shuffle(shuffledList); // Shuffle the list
                         displayCurrentSentence();
                     }
+                } else {
+                    Log.e("OrganizarActivity", "Respuesta vacía o fallida.");
                 }
             }
 
@@ -139,7 +152,7 @@ public class OrganizarActivity extends AppCompatActivity {
                 clickedButton.setVisibility(View.GONE);
 
                 if (clickedButtons.size() == 4) {
-                    checkSentenceCompletion();
+                    checkAnswer();
                 }
             }
         };
@@ -148,119 +161,63 @@ public class OrganizarActivity extends AppCompatActivity {
         boton_frase2.setOnClickListener(listener);
         boton_frase3.setOnClickListener(listener);
         boton_frase4.setOnClickListener(listener);
-        boton_frase5.setOnClickListener(listener);
+
+        boton_frase5.setOnClickListener(v -> {
+            if (currentIndex < shuffledList.size() - 1) {
+                currentIndex++;
+                displayCurrentSentence();
+            } else {
+                Toast.makeText(OrganizarActivity.this, "Has completado todas las frases.", Toast.LENGTH_SHORT).show();
+                navigateToCaracteristicaActivity();
+            }
+        });
     }
 
-    private void checkSentenceCompletion() {
-        if (currentSentence.toString().trim().equalsIgnoreCase(fraseCompleta)) {
-            Log.d("OrganizarActivity", "Frase completada correctamente");
-            incrementScore(5);
-        } else {
-            Log.d("OrganizarActivity", "Frase incorrecta");
-            incrementScore(-5); // Subtract 5 points for incorrect completion
+    private void setButtonText(ImageButton button, String text) {
+        // Assuming each button has a TextView child to display the text
+        TextView textView = (TextView) ((RelativeLayout) button.getParent()).getChildAt(1);
+        if (textView != null) {
+            textView.setText(text);
+        }
+    }
 
-            // Re-show all buttons if the sentence is incorrect
-            boton_frase1.setVisibility(View.VISIBLE);
-            boton_frase2.setVisibility(View.VISIBLE);
-            boton_frase3.setVisibility(View.VISIBLE);
-            boton_frase4.setVisibility(View.VISIBLE);
+    private void checkAnswer() {
+        if (currentSentence.toString().trim().equals(fraseCompleta)) {
+            score += 5; // Correct answer
+            puntajeLabel.setText("Puntaje: " + score);
+        } else {
+            score -= 5; // Incorrect answer
+            Toast.makeText(OrganizarActivity.this, "Respuesta incorrecta", Toast.LENGTH_SHORT).show();
         }
 
-        currentIndex++;
-        processedCount++; // Increment the processed count
+        // Clear the current sentence and clicked buttons
         currentSentence.setLength(0);
-        sentenceLine1.setText("");
         clickedButtons.clear();
+        sentenceLine1.setText("");
 
-        if (processedCount >= 3) {
-            navigateToMenuActivity();
-        } else if (currentIndex < shuffledList.size()) {
-            displayCurrentSentence();
-        } else {
-            Log.d("OrganizarActivity", "No hay más frases para mostrar");
-            showFinalScore();
-        }
-
-        boton_frase5.setEnabled(true);
+        // End game and navigate to CaracteristicaActivity
+        Toast.makeText(OrganizarActivity.this, "Juego terminado. Puntaje final: " + score, Toast.LENGTH_LONG).show();
+        navigateToCaracteristicaActivity();
     }
 
-    private void incrementScore(int points) {
-        score += points;
-        updateScoreLabel();
-    }
 
-    private void updateScoreLabel() {
-        puntajeLabel.setText("Puntaje: " + score);
-    }
-
-    private void showFinalScore() {
-        Toast.makeText(this, "Puntaje final: " + score, Toast.LENGTH_LONG).show();
-        resetGame();
-    }
-
-    private void resetGame() {
-        currentIndex = 0;
-        processedCount = 0;
-        score = 0;
-        updateScoreLabel();
-        shuffledList.clear();
-        fetchAnimalData(ApiService.getApiService());
-    }
-
-    private void navigateToMenuActivity() {
-        Intent intent = new Intent(OrganizarActivity.this, MenuActivity.class);
+    private void navigateToCaracteristicaActivity() {
+        Intent intent = new Intent(OrganizarActivity.this, CaracteristicaActivity.class);
+        intent.putExtra("LAST_ANIMAL_ID", lastAnimalId); // Pass the last animal ID to CaracteristicaActivity
+        // Optionally, use FLAG_ACTIVITY_CLEAR_TOP to avoid multiple instances
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish(); // Finish the current activity to prevent returning to it
     }
 
-    private void setButtonText(ImageButton button, String text) {
-        RelativeLayout parent = (RelativeLayout) button.getParent();
-        if (parent != null) {
-            int textViewId = getTextViewIdForButton(button.getId());
-            if (textViewId != -1) {
-                TextView textView = parent.findViewById(textViewId);
-                if (textView != null) {
-                    textView.setText(text);
-                } else {
-                    Log.e("OrganizarActivity", "TextView con ID '" + textViewId + "' no encontrado en el layout del botón.");
-                }
-            } else {
-                Log.e("OrganizarActivity", "ID del botón desconocido.");
-            }
-        } else {
-            Log.e("OrganizarActivity", "RelativeLayout padre del botón no encontrado.");
-        }
-    }
-
-    private int getTextViewIdForButton(int buttonId) {
-        if (buttonId == R.id.boton_frase1) {
-            return R.id.text_in_button1;
-        } else if (buttonId == R.id.boton_frase2) {
-            return R.id.text_in_button2;
-        } else if (buttonId == R.id.boton_frase3) {
-            return R.id.text_in_button3;
-        } else if (buttonId == R.id.boton_frase4) {
-            return R.id.text_in_button4;
-        } else {
-            return -1;
-        }
-    }
     private void hideSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        // Hide system UI for full-screen experience
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            hideSystemUI();
-        }
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
     }
 }

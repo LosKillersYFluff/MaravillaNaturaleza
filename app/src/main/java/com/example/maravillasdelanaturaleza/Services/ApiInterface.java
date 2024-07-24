@@ -2,6 +2,7 @@ package com.example.maravillasdelanaturaleza.Services;
 
 import com.example.maravillasdelanaturaleza.Entidades.AgregarAnimalUsuario;
 import com.example.maravillasdelanaturaleza.Entidades.Animales;
+import com.example.maravillasdelanaturaleza.Entidades.CaracteristicaAnimales;
 import com.example.maravillasdelanaturaleza.Entidades.Num;
 import com.example.maravillasdelanaturaleza.Entidades.Puntos;
 import com.example.maravillasdelanaturaleza.Entidades.Texto;
@@ -19,6 +20,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -45,5 +47,11 @@ public interface ApiInterface {
 
     @PUT("/nature/updateUser")
     Call<Num> actualizarUsuario(@Body Usuarios usuario);
+
+    @GET("nature/consultarCaracteristicasAnimales")
+    Call<List<CaracteristicaAnimales>> getCaracteristicasAnimales();
+
+    @GET("/nature/organizar")
+    Call<List<Respuestas>> organizar(@Query("id_animal") String idAnimal);
 
 }
