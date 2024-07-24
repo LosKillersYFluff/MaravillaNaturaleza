@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".EliminarActivity">
+
+    <ImageButton
+        android:id="@+id/regresar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/flecharegresar"
+        android:background="@android:color/transparent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:layout_margin="10dp"/>
+
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:background="@drawable/titulomadera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textSize="50sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/stay_pixel"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:shadowColor="@color/colorBorde"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contenedor_info"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/contenedor_titulo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/fondo_transparente"
+        android:padding="10dp">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="0dp">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/fondomadera"
+            android:onClick="Eliminar"
+            android:scaleType="fitCenter"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/stay_pixel"
+            android:shadowColor="@color/colorBorde"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1.5"
+            android:text="Eliminar"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

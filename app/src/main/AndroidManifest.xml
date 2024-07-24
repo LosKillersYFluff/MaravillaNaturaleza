@@ -21,6 +21,18 @@
             android:name=".CaracteristicaActivity"
             android:exported="false" />
         <activity
+            android:name=".EliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ModificarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnadirActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity

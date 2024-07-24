@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fondo"
+    tools:context=".ModificarActivity">
+
+    <ImageButton
+        android:id="@+id/regresar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/flecharegresar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerCrop"
+        android:onClick="onRegresar"
+        />
+
+    <RelativeLayout
+        android:id="@+id/contenedor_titulo"
+        android:layout_width="300dp"
+        android:layout_height="105dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/titulomadera"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modificar"
+            android:shadowColor="@color/colorBorde"
+            android:textSize="45sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:fontFamily="@font/stay_pixel"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="450dp"
+        android:layout_height="329dp"
+        android:layout_below="@id/contenedor_titulo"
+        android:layout_marginStart="300dp"
+        android:layout_marginBottom="15dp"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/contenedor_anadir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/fondo_transparente"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Animal:"
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nombre"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo1"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica 1:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracter1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracter1"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo2"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica 2:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracter2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica2"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracter2"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo3"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica 3:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracter3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica3"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracter3"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo4"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica 4:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracter4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica4"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracter4"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/imagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo5"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Imagen:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/imgEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imagen"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="textUri"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgEdit"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo6"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica Minijuegos:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracterMini"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica5"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracterMini"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo7"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica Minijuegos 2:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracterMini2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica6"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracterMini2"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo8"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica Minijuegos 3:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/caracterMini3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracteristica7"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracterMini3"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/caracteristica8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/campo9"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/pixellari"
+                android:text="Caracteristica Minijuegos 4:"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/caracterMini4"
+                android:layout_below="@id/caracteristica8"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/campo_color"
+                android:fontFamily="@font/pixellari"
+                android:inputType="text"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/campo10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/caracterMini4"
+                android:layout_marginTop="2dp"
+                android:text="Campo vacio"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/campo10"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp">
+
+                <ImageButton
+                    android:id="@+id/modificar"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="Modificar"
+                    android:src="@drawable/fondomadera"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/stay_pixel"
+                    android:text="Modificar"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="20dp"
+        android:entries="@array/options_array"/>
+
+</RelativeLayout>
